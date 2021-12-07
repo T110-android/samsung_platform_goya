@@ -1,0 +1,6 @@
+The program 'lynx' can be found in the following packages:
+ * lynx-cur-wrapper
+ * lynx
+ * lynx-cur
+Try: sudo apt-get install <selected package>
+Make sure you have the 'universe' component enabled

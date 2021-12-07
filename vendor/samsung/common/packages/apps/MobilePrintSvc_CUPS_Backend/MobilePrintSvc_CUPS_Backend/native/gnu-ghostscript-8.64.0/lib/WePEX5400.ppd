@@ -1,0 +1,220 @@
+*PPD-Adobe: "4.3"
+*%
+*% For information on using this, and to obtain the required backend
+*% script, consult http://www.linuxprinting.org/
+*%
+*% This file is published under the GNU General Public License
+*%
+*% PPD-O-MATIC (3.0.0 or newer) generated this PPD file. It is for use with 
+*% all programs and environments which use PPD files for dealing with
+*% printer capability information. The printer must be configured with the
+*% "foomatic-rip" backend filter script of Foomatic 3.0.0 or newer. This 
+*% file and "foomatic-rip" work together to support PPD-controlled printer
+*% driver option access with arbitrary free software printer drivers and
+*% printing spoolers.
+*%
+*% To save this file on your disk, wait until the download has completed
+*% (the animation of the browser logo must stop) and then use the
+*% "Save as..." command in the "File" menu of your browser or in the
+*% pop-up manu when you click on this document with the right mouse button.
+*% DO NOT cut and paste this file into an editor with your mouse. This can
+*% introduce additional line breaks which lead to unexpected results.
+*%
+*% You may save this file as 'wep-9-pin-series.ppd'
+*%
+*%
+*FormatVersion:	"4.3"
+*FileVersion:	"1.1"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*PCFileName:	"WEP.PPD"
+*Manufacturer:	"WeP"
+*Product:	"WeP EX 5400"
+*cupsVersion:	1.0
+*cupsManualCopies: True
+*cupsModelNumber:  2
+*cupsFilter:	"application/vnd.cups-postscript 0 foomatic-rip"
+*%pprRIP:        foomatic-rip other
+*ModelName:     "WeP EX 5400"
+*ShortNickName: "WeP EX 5400"
+*NickName:      "WeP EX 5400"
+*PSVersion:	"(3010.000) 550"
+*PSVersion:	"(3010.000) 651"
+*PSVersion:	"(3010.000) 652"
+*PSVersion:	"(3010.000) 653"
+*PSVersion:	"(3010.000) 704"
+*PSVersion:	"(3010.000) 705"
+*PSVersion:	"(3010.000) 800"
+*LanguageLevel:	"3"
+*ColorDevice:	False
+*DefaultColorSpace: Gray
+*FileSystem:	False
+*Throughput:	"1"
+*LandscapeOrientation: Plus90
+*TTRasterizer:	Type42
+
+*FoomaticIDs: WeP-9-Pin wep9pin
+*FoomaticRIPCommandLine: "gs -q -dBATCH -dPARANOIDSAFER -dQUIET -dNOPA&&
+USE -sDEVICE=wep9pin%A%Z -sOutputFile=- -"
+*End
+
+*OpenGroup: General/General
+
+*OpenUI *PageSize/Page Size: PickOne
+*OrderDependency: 100 AnySetup *PageSize
+*DefaultPageSize: Letter
+*PageSize Letter/US Letter: "<</PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageSize A4/A4: "<</PageSize[595 842]/ImagingBBox null>>setpagedevice"
+*PageSize 3x5/3x5: "<</PageSize[216 360]/ImagingBBox null>>setpagedevice"
+*PageSize 4x6/4x6: "<</PageSize[288 432]/ImagingBBox null>>setpagedevice"
+*PageSize 5x7/5x7: "<</PageSize[360 504]/ImagingBBox null>>setpagedevice"
+*PageSize 5x8/5x8: "<</PageSize[360 576]/ImagingBBox null>>setpagedevice"
+*PageSize 6x8/6x8: "<</PageSize[432 576]/ImagingBBox null>>setpagedevice"
+*PageSize 8x10/8x10: "<</PageSize[576 720]/ImagingBBox null>>setpagedevice"
+*PageSize 8x12/8x12: "<</PageSize[576 864]/ImagingBBox null>>setpagedevice"
+*PageSize 8.5x12/8.5x12: "<</PageSize[612 864]/ImagingBBox null>>setpagedevice"
+*PageSize 9x12/9x12: "<</PageSize[648 864]/ImagingBBox null>>setpagedevice"
+*PageSize 15x12/15x12: "<</PageSize[979 864]/ImagingBBox null>>setpagedevice"
+*PageSize 11x14/11x14: "<</PageSize[792 1008]/ImagingBBox null>>setpagedevice"
+*PageSize 13x19/13x19: "<</PageSize[936 1368]/ImagingBBox null>>setpagedevice"
+*PageSize 16x20/16x20: "<</PageSize[979 1440]/ImagingBBox null>>setpagedevice"
+*PageSize A3/A3: "<</PageSize[842 1191]/ImagingBBox null>>setpagedevice"
+*PageSize Legal/US Legal: "<</PageSize[612 1008]/ImagingBBox null>>setpagedevice"
+*PageSize FanFoldUS/FanFoldUS:	"<</PageSize[979 792]/ImagingBBox null>>setpagedevice"
+*PageSize DemandDraft/DemandDraft:	"<</PageSize[612 264]/ImagingBBox null>>setpagedevice"
+*PageSize 6x3/6x3:	"<</PageSize[432 216]/ImagingBBox null>>setpagedevice"
+*PageSize Folio/Folio:	"<</PageSize[612 936]/ImagingBBox null>>setpagedevice"
+*PageSize 8x6/8x6:	"<</PageSize[576 432]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageSize
+
+*OpenUI *PageRegion: PickOne
+*OrderDependency: 100 AnySetup *PageRegion
+*DefaultPageRegion: Letter
+*PageRegion Letter/US Letter: "<</PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageRegion A4/A4: "<</PageSize[595 842]/ImagingBBox null>>setpagedevice"
+*PageRegion 3x5/3x5: "<</PageSize[216 360]/ImagingBBox null>>setpagedevice"
+*PageRegion 4x6/4x6: "<</PageSize[288 432]/ImagingBBox null>>setpagedevice"
+*PageRegion 5x7/5x7: "<</PageSize[360 504]/ImagingBBox null>>setpagedevice"
+*PageRegion 5x8/5x8: "<</PageSize[360 576]/ImagingBBox null>>setpagedevice"
+*PageRegion 6x8/6x8: "<</PageSize[432 576]/ImagingBBox null>>setpagedevice"
+*PageRegion 8x10/8x10: "<</PageSize[576 720]/ImagingBBox null>>setpagedevice"
+*PageRegion 8x12/8x12: "<</PageSize[576 864]/ImagingBBox null>>setpagedevice"
+*PageRegion 8.5x12/8.5x12: "<</PageSize[612 864]/ImagingBBox null>>setpagedevice"
+*PageRegion 9x12/9x12: "<</PageSize[648 864]/ImagingBBox null>>setpagedevice"
+*PageRegion 15x12/15x12: "<</PageSize[979 864]/ImagingBBox null>>setpagedevice"
+*PageRegion 11x14/11x14: "<</PageSize[792 1008]/ImagingBBox null>>setpagedevice"
+*PageRegion 13x19/13x19: "<</PageSize[936 1368]/ImagingBBox null>>setpagedevice"
+*PageRegion 16x20/16x20: "<</PageSize[979 1440]/ImagingBBox null>>setpagedevice"
+*PageRegion A3/A3: "<</PageSize[842 1191]/ImagingBBox null>>setpagedevice"
+*PageRegion Legal/US Legal: "<</PageSize[612 1008]/ImagingBBox null>>setpagedevice"
+*PageSize FanFoldUS/FanFoldUS:	"<</PageSize[979 792]/ImagingBBox null>>setpagedevice"
+*PageSize DemandDraft/DemandDraft:	"<</PageSize[612 264]/ImagingBBox null>>setpagedevice"
+*PageSize 6x3/6x3:	"<</PageSize[432 216]/ImagingBBox null>>setpagedevice"
+*PageSize Folio/Folio:	"<</PageSize[612 936]/ImagingBBox null>>setpagedevice"
+*PageSize 8x6/8x6:	"<</PageSize[576 432]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageRegion
+
+*DefaultImageableArea: Letter
+*ImageableArea Letter/US Letter: "0 0 612 792"
+*ImageableArea A4/A4: "0 0 595 842"
+*ImageableArea 3x5/3x5: "0 0 216 360"
+*ImageableArea 4x6/4x6: "0 0 288 432"
+*ImageableArea 5x7/5x7: "0 0 360 504"
+*ImageableArea 5x8/5x8: "0 0 360 576"
+*ImageableArea 6x8/6x8: "0 0 432 576"
+*ImageableArea 8x10/8x10: "0 0 576 720"
+*ImageableArea 8x12/8x12: "0 0 576 864"
+*ImageableArea 8.5x12/8.5x12: "0 0 612 864"
+*ImageableArea 9x12/9x12: "0 0 648 864"
+*ImageableArea 15x12/15x12: "0 0 979 864"
+*ImageableArea 11x14/11x14: "0 0 792 1008"
+*ImageableArea 13x19/13x19: "0 0 936 1368"
+*ImageableArea 16x20/16x20: "0 0 979 1440"
+*ImageableArea A3/A3: "0 0 842 1191"
+*ImageableArea Legal/US Legal: "0 0 612 1008"
+*ImageableArea FanFoldUS/FanFoldUS: "0 0 979 792"
+*ImageableArea DemandDraft/DemandDraft: "0 0 612 264"
+*ImageableArea 6x3/6x3: "0 0 432 216"
+*ImageableArea Folio/Folio: "0 0 612 936"
+*ImageableArea 8x6/8x6: "0 0 576 432"
+
+*DefaultPaperDimension: Letter
+*PaperDimension Letter/US Letter: "612 792"
+*PaperDimension A4/A4: "595 842"
+*PaperDimension 3x5/3x5: "216 360"
+*PaperDimension 4x6/4x6: "288 432"
+*PaperDimension 5x7/5x7: "360 504"
+*PaperDimension 5x8/5x8: "360 576"
+*PaperDimension 6x8/6x8: "432 576"
+*PaperDimension 8x10/8x10: "576 720"
+*PaperDimension 8x12/8x12: "576 864"
+*PaperDimension 8.5x12/8.5x12: "612 864"
+*PaperDimension 9x12/9x12: "648 864"
+*PaperDimension 15x12/15x12: "979 864"
+*PaperDimension 11x14/11x14: "792 1008"
+*PaperDimension 13x19/13x19: "936 1368"
+*PaperDimension 16x20/16x20: "979 1440"
+*PaperDimension A3/A3: "842 1191"
+*PaperDimension Legal/US Legal: "612 1008"
+*PaperDimension FanFoldUS/FanFoldUS: "979 792"
+*PaperDimension DemandDraft/DemandDraft: "612 264"
+*PaperDimension 6x3/6x3: "432 216"
+*PaperDimension Folio/Folio: "612 936"
+*PaperDimension 8x6/8x6: "576 432"
+
+*OpenUI *Resolution/Resolution: PickOne
+*FoomaticRIPOption Resolution: enum CmdLine A
+*OrderDependency: 100 AnySetup *Resolution
+*DefaultResolution: 120x144dpi
+*Resolution 120x72dpi/120x72 dpi: "%% FoomaticRIPOptionSetting: Resolution=120x72dpi"
+*FoomaticRIPOptionSetting Resolution=120x72dpi: " -r120x72"
+*Resolution 120x144dpi/120x144 dpi: "%% FoomaticRIPOptionSetting: Resolution=120x144dpi"
+*FoomaticRIPOptionSetting Resolution=120x144dpi: " -r120x144"
+*Resolution 240x144dpi/240x144 dpi: "%% FoomaticRIPOptionSetting: Resolution=240x144dpi"
+*FoomaticRIPOptionSetting Resolution=240x144dpi: " -r240x144"
+*Resolution 240x72dpi/240x72 dpi: "%% FoomaticRIPOptionSetting: Resolution=240x72dpi"
+*FoomaticRIPOptionSetting Resolution=240x72dpi: " -r240x72"
+*CloseUI: *Resolution
+
+*CloseGroup: General
+
+
+*% Generic boilerplate PPD stuff as standard PostScript fonts and so on
+
+*DefaultFont: Courier
+*Font AvantGarde-Book: Standard "(001.006S)" Standard ROM
+*Font AvantGarde-BookOblique: Standard "(001.006S)" Standard ROM
+*Font AvantGarde-Demi: Standard "(001.007S)" Standard ROM
+*Font AvantGarde-DemiOblique: Standard "(001.007S)" Standard ROM
+*Font Bookman-Demi: Standard "(001.004S)" Standard ROM
+*Font Bookman-DemiItalic: Standard "(001.004S)" Standard ROM
+*Font Bookman-Light: Standard "(001.004S)" Standard ROM
+*Font Bookman-LightItalic: Standard "(001.004S)" Standard ROM
+*Font Courier: Standard "(002.004S)" Standard ROM
+*Font Courier-Bold: Standard "(002.004S)" Standard ROM
+*Font Courier-BoldOblique: Standard "(002.004S)" Standard ROM
+*Font Courier-Oblique: Standard "(002.004S)" Standard ROM
+*Font Helvetica: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Bold: Standard "(001.007S)" Standard ROM
+*Font Helvetica-BoldOblique: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Narrow-Bold: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow-BoldOblique: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow-Oblique: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Oblique: Standard "(001.006S)" Standard ROM
+*Font NewCenturySchlbk-Bold: Standard "(001.009S)" Standard ROM
+*Font NewCenturySchlbk-BoldItalic: Standard "(001.007S)" Standard ROM
+*Font NewCenturySchlbk-Italic: Standard "(001.006S)" Standard ROM
+*Font NewCenturySchlbk-Roman: Standard "(001.007S)" Standard ROM
+*Font Palatino-Bold: Standard "(001.005S)" Standard ROM
+*Font Palatino-BoldItalic: Standard "(001.005S)" Standard ROM
+*Font Palatino-Italic: Standard "(001.005S)" Standard ROM
+*Font Palatino-Roman: Standard "(001.005S)" Standard ROM
+*Font Symbol: Special "(001.007S)" Special ROM
+*Font Times-Bold: Standard "(001.007S)" Standard ROM
+*Font Times-BoldItalic: Standard "(001.009S)" Standard ROM
+*Font Times-Italic: Standard "(001.007S)" Standard ROM
+*Font Times-Roman: Standard "(001.007S)" Standard ROM
+*Font ZapfChancery-MediumItalic: Standard "(001.007S)" Standard ROM
+*Font ZapfDingbats: Special "(001.004S)" Standard ROM
+

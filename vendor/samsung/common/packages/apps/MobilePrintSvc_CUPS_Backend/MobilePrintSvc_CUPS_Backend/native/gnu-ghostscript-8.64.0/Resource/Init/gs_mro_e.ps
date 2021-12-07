@@ -1,0 +1,62 @@
+%    Copyright (C) 1994, 1999 Aladdin Enterprises.  All rights reserved.
+% 
+%  This file is part of GNU ghostscript
+%
+%  GNU ghostscript is free software; you can redistribute it and/or modify it under
+%  the terms of the version 2 of the GNU General Public License as published by the Free Software
+%  Foundation.
+%
+%  GNU ghostscript is distributed in the hope that it will be useful, but WITHOUT
+%  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+%  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public License along with
+%  ghostscript; see the file COPYING. If not, write to the Free Software Foundation,
+%  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+%
+% $Id: gs_mro_e.ps,v 1.5 2007/08/01 14:25:38 jemarch Exp $
+% Define the MacRoman encoding vector.
+/currentglobal where
+ { pop currentglobal { setglobal } true setglobal }
+ { { } }
+ifelse
+/MacRomanEncoding
+StandardEncoding 0 39 getinterval aload pop
+    /quotesingle
+StandardEncoding 40 56 getinterval aload pop
+    /grave
+StandardEncoding 97 31 getinterval aload pop
+% \20x
+    /Adieresis /Aring /Ccedilla /Eacute /Ntilde /Odieresis /Udieresis /aacute
+    /agrave /acircumflex /adieresis /atilde /aring /ccedilla /eacute /egrave
+    /ecircumflex /edieresis /iacute /igrave
+	/icircumflex /idieresis /ntilde /oacute
+    /ograve /ocircumflex /odieresis /otilde
+	/uacute /ugrave /ucircumflex /udieresis
+% \24x
+    /dagger /degree /cent /sterling /section /bullet /paragraph /germandbls
+    /registered /copyright /trademark /acute /dieresis /.notdef /AE /Oslash
+    /.notdef /plusminus /.notdef /.notdef /yen /mu /.notdef /.notdef
+    /.notdef /.notdef /.notdef /ordfeminine /ordmasculine /.notdef /ae /oslash
+% \30x
+    /questiondown /exclamdown /logicalnot /.notdef
+	/florin /.notdef /.notdef /guillemotleft
+    /guillemotright /ellipsis /space /Agrave /Atilde /Otilde /OE /oe
+    /endash /emdash /quotedblleft /quotedblright
+	/quoteleft /quoteright /divide /.notdef
+	% NOTE: Euro should replace currency, but the PDF 1.3 documentation
+	% explicitly says it does not.
+    /ydieresis /Ydieresis /fraction /currency
+	/guilsinglleft /guilsinglright /fi /fl
+% \34x
+    /daggerdbl /periodcentered /quotesinglbase /quotedblbase
+	/perthousand /Acircumflex /Ecircumflex /Aacute
+    /Edieresis /Egrave /Iacute /Icircumflex
+	/Idieresis /Igrave /Oacute /Ocircumflex
+    /.notdef /Ograve /Uacute /Ucircumflex
+	/Ugrave /dotlessi /circumflex /tilde
+    /macron /breve /dotaccent /ring /cedilla /hungarumlaut /ogonek /caron
+256 packedarray
+5 1 index .registerencoding
+.defineencoding
+exec

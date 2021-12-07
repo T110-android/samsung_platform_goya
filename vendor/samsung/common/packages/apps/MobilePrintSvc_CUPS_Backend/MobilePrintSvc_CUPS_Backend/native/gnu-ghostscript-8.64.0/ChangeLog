@@ -1,0 +1,59 @@
+2005-12-14  Alfred M. Szmidt  <ams@gnu.org>
+  
+	* src/unix-end.mak (TAGS): Don't pass `-t' to etags.
+
+
+2005-12-13  Jose E. Marchesi  <jose.marchesi@deimos-space.com>
+
+
+	* src/all-arch.mak: Offer for propietary licensing removed
+	* src/*.[ch]: idem
+
+	
+2005-12-08  Jose E. Marchesi  <jose.marchesi@deimos-space.com>
+
+	* doc/ghostscript.texi: New file for the GNU Ghostscript manual.
+
+	* ChangeLog: New changelog file.
+
+2006-10-17 Didier LINK <didier.link@wanadoo.fr>
+
+	* all files : updates from gpl-ghostscript 8.54
+	* src/gdevhl12, Makefile.in : include gdevhl12 driver
+	* configure.ac : updates to properly configure jasper, ijs, zlib, 
+	libpng and jbig2dec
+	* Makefile.in : introduce datarootdir value
+	* new GNU version : 8.55
+
+2006-11-27 Didier LINK <didier.link@wanadoo.fr>
+	* add DMP printer drivers and ppds, thanks to Sahaya Darcius
+
+2007-05-08 Didier Link <didier@famille-link.fr>
+	* lots of updates from GPL 8.56 version released by Artifex Software Inc.
+	* configure.ac, Makefile.in, src/imainarg.c, gscdefs.h: change version
+	numbering in the package to append a patch number
+	* src/version.mak: removed because is functionnalities was transfered
+	in the main Makefile
+	* AUTHORS, NEWS, install-sh, missing: added files
+	* new GNU version: 8.56.0
+
+2007-09-12 Didier LINK <didier@famille-link.fr>
+	* lots of updates from GPL 8.57 and 8.60 released by Artifex Software Inc.
+	* new GNU version: 8.60.0
+
+2008-05-04 Didier LINK <didier@famille-link.fr>
+	* updates from GPL 8.61 release
+	* add LICENSE.Unicode file to cover src/ConvertUTF.[c|h] files
+	* new GNU version: 8.61.0
+	* updates from GPL 8.62 release
+	* gdevxini.c: patch from savannah bug #20270 to correct gv cropping error
+	* new GNU version 8.62.0
+	
+2009-04-19 Didier LINK <didier@famille-link.fr>
+	* updates from GPL 8.63 release
+	* new GNU version: 8.63.0
+
+2009-04-24 Didier LINK <didier@famille-link.fr>
+	* updates from GPL 8.64 release
+	* new GNU version: 8.64.0
+	

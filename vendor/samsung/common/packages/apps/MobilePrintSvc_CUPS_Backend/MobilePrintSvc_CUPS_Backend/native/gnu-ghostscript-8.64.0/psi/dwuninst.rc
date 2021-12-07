@@ -1,0 +1,41 @@
+/* Copyright (C) 2001-2006 Artifex Software, Inc.
+   All Rights Reserved.
+  
+  This file is part of GNU ghostscript
+
+  GNU ghostscript is free software; you can redistribute it and/or
+  modify it under the terms of the version 2 of the GNU General Public
+  License as published by the Free Software Foundation.
+
+  GNU ghostscript is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along with
+  ghostscript; see the file COPYING. If not, write to the Free Software Foundation,
+  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+*/
+
+// $Id: dwuninst.rc,v 1.7 2007/09/11 15:24:08 Arabidopsis Exp $
+
+#include <windows.h>
+#include "dwuninst.h"
+
+ID_UNINSTGS ICON "gswin.ico"
+
+
+IDD_UNSET DIALOG 6, 15, 242, 123
+STYLE DS_MODALFRAME | 0x4L | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION ""
+FONT 8, "MS Sans Serif"
+{
+ DEFPUSHBUTTON "&Cancel", IDCANCEL, 106, 98, 50, 14
+ PUSHBUTTON "&Uninstall", IDOK, 16, 98, 50, 14
+ LTEXT "To remove this package, press Uninstall", IDC_PRESSOK, 44, 8, 192, 8
+ LTEXT "", IDC_T1, 32, 48, 200, 16
+ LTEXT "", IDC_T2, 32, 64, 200, 16
+ ICON ID_UNINSTGS, IDC_GSICON, 8, 8, 18, 20
+}
+
+

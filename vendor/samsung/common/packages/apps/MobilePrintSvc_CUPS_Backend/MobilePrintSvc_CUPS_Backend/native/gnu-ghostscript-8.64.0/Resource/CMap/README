@@ -1,0 +1,17 @@
+CMap PostScript Resources
+
+   Ghostscript uses CIDs to identify each glyphs for double-byte fonts (instead
+   of glyph names used for single-byte fonts).
+
+   All CJK (CID-keyed font) supporting features requires CMap resources.
+   Please install CMap resource files under the directory 
+
+     /usr/share/ghostscript/8.63/Resource/CMap
+
+   Adobe's "CMaps for PDF 1.4 CJK Fonts" are available at:
+
+     http://partners.adobe.com/public/developer/font/index.html#pcfi
+
+   Standard CMap files for CJK-languages are also available at:
+
+     ftp://ftp.oreilly.com/pub/examples/nutshell/cjkv/adobe/

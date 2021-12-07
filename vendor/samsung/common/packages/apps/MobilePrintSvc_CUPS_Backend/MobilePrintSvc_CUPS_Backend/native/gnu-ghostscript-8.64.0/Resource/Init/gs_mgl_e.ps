@@ -1,0 +1,65 @@
+%    Copyright (C) 1999, 2000 Aladdin Enterprises.  All rights reserved.
+% 
+%  This file is part of GNU ghostscript
+%
+%  GNU ghostscript is free software; you can redistribute it and/or modify it under
+%  the terms of the version 2 of the GNU General Public License as published by the Free Software
+%  Foundation.
+%
+%  GNU ghostscript is distributed in the hope that it will be useful, but WITHOUT
+%  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+%  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public License along with
+%  ghostscript; see the file COPYING. If not, write to the Free Software Foundation,
+%  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+%
+% $Id: gs_mgl_e.ps,v 1.5 2007/08/01 14:25:38 jemarch Exp $
+% Define the Macintosh standard glyph encoding vector.
+% This is not an Encoding strictly speaking, but we treat it like one.
+/currentglobal where
+ { pop currentglobal { setglobal } true setglobal }
+ { { } }
+ifelse
+/MacRomanEncoding .findencoding
+/MacGlyphEncoding
+    /.notdef /.null /CR
+% 3
+4 index 32 95 getinterval aload pop
+% 98
+99 index 128 45 getinterval aload pop
+% 143
+    /notequal /AE
+	/Oslash /infinity /plusminus /lessequal /greaterequal
+    /yen /mu1 /partialdiff /summation /product
+	/pi /integral /ordfeminine /ordmasculine /Ohm
+    /ae /oslash /questiondown /exclamdown /logicalnot
+	/radical /florin /approxequal /increment /guillemotleft
+    /guillemotright /ellipsis /nbspace
+% 173
+174 index 203 12 getinterval aload pop
+    /lozenge
+% 186
+187 index 216 24 getinterval aload pop
+    /applelogo
+% 211
+212 index 241 7 getinterval aload pop
+    /overscore
+% 219
+220 index 249 7 getinterval aload pop
+% 226
+	/Lslash /lslash /Scaron /scaron
+    /Zcaron /zcaron /brokenbar /Eth /eth
+	/Yacute /yacute /Thorn /thorn /minus
+    /multiply /onesuperior /twosuperior /threesuperior /onehalf
+	/onequarter /threequarters /franc /Gbreve /gbreve
+		% The TrueType documentation says the next glyph is named
+		% Idot, but the Adobe standard name for this glyph is
+		% Idotaccent.
+    /Idotaccent /Scedilla /scedilla /Cacute /cacute
+	/Ccaron /ccaron /dmacron
+260 -1 roll pop		% delete MacRomanEncoding
+258 packedarray
+7 1 index .registerencoding
+.defineencoding
+exec

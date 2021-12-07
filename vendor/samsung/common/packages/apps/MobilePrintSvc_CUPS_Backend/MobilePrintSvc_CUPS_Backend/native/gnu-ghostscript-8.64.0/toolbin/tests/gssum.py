@@ -1,0 +1,87 @@
+#!/usr/bin/env python
+# -*- Mode: python -*-
+
+#    Copyright (C) 2001 Artifex Software Inc.
+#    All Rights Reserved.
+# 
+# This file is part of GNU ghostscript
+#
+# GNU ghostscript is free software; you can redistribute it and/or
+# modify it under the terms of the version 2 of the GNU General Public
+# License as published by the Free Software Foundation.
+#
+# This software is provided AS-IS with no warranty, either express or
+# implied. That is, this program is distributed in the hope that it will 
+# be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA, 02110-1301.
+
+
+# $Id: gssum.py,v 1.7 2008/05/04 14:35:06 Arabidopsis Exp $
+
+# gssum.py
+#
+# this module contains routines for calculating sums and managing
+# the sum database
+
+import anydbm
+import gsconf
+import os, string, md5
+from stat import *
+
+myself="gssum.py"
+
+def exists(imagefile, dbname):
+    db = anydbm.open(dbname)
+    imagefilebase=os.path.basename(imagefile)
+    exists = db.has_key(imagefilebase)
+    db.close()
+    return exists
+
+def add_file(imagefile, dbname, sum=None):
+    db = anydbm.open(dbname, 'w')
+    if sum == None:
+        sum = make_sum(imagefile)
+    if sum != None:
+        imagefilebase=os.path.basename(imagefile)
+        db[imagefilebase] = sum
+    else:
+        print "gssum.add_file failed to create a sum for",imagefile
+    db.close()
+    return sum
+
+def get_sum(imagefile, dbname):
+    try:
+        db = anydbm.open(dbname)
+    except:
+        print "cannot open", dbname, "for", imagefile
+        
+    imagefilebase=os.path.basename(imagefile)
+    sum = db[imagefilebase]
+    db.close()
+    return sum
+
+def make_sum(imagefile):
+    try:
+	mode = os.stat(imagefile)[ST_MODE]
+    except OSError:
+        print "gssum.add_file failed to stat",imagefile
+	return None
+
+    if S_ISREG(mode):
+	sum = md5.new()
+	f = open(imagefile, "r")
+	data = f.read(1024)
+	while data:
+		sum.update(data)
+		data = f.read(1024)
+	f.close()
+
+        return sum.hexdigest()
+    
+    print "gssum.add_file failed ISREG",imagefile
+    return None

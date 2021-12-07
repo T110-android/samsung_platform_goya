@@ -1,0 +1,35 @@
+%    Copyright (C) 1999 Aladdin Enterprises.  All rights reserved.
+% 
+%  This file is part of GNU ghostscript
+%
+%  GNU ghostscript is free software; you can redistribute it and/or modify it under
+%  the terms of the version 2 of the GNU General Public License as published by the Free Software
+%  Foundation.
+%
+%  GNU ghostscript is distributed in the hope that it will be useful, but WITHOUT
+%  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+%  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public License along with
+%  ghostscript; see the file COPYING. If not, write to the Free Software Foundation,
+%  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+%
+% $Id: pfbtopfa.ps,v 1.5 2007/08/01 14:25:41 jemarch Exp $
+% pfbtopfa.ps
+% Convert a .pfb font to .pfa format.
+
+[ shellarguments {
+  counttomark 2 eq {
+    /pfa exch def /pfb exch def pop
+    /in1 pfb (r) file def
+    /in in1 true /PFBDecode filter def
+    /out pfa (w) file def
+    { in read not { exit } if out exch write } loop
+    out closefile in closefile in1 closefile
+    quit
+  } {
+    cleartomark (Usage: pfbtopfa input.pfb output.pfa) = flush
+  } ifelse
+} {
+  pop
+} ifelse

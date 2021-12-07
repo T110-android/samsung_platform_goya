@@ -1,0 +1,179 @@
+
+	ALPS MD series printer driver for Ghostscript 5.xx
+
+							1999/ 4/18
+							1999/ 5/ 2 ����
+
+����
+---
+  �ܥɥ饤�Ф� Ghostscript 5.10/5.50(/5.82) �� ALPS MD ���꡼���ץ�󥿡���
+���Ϥ򤹤뤿��Υɥ饤�ФǤ����ʲ��Τ褦�ʵ�ǽ����Ƥ��ޤ���
+
+	���顼����Υ���������ǽ
+	300dpi, 600dpi, 1200x600dpi ���б�
+	�ѻ�μ��ࡦ�������λ��꤬��ǽ
+	Floyd-Steinberg dithering ����ǽ
+	dithering ���ѻ��˿���ǻ��Ĵ0����ǽ
+
+���ߡ�MD-2000/2010/4000/1300/1500/5000 ��ư���ǧ����Ƥ��ޤ���(md2k�Τ�)
+
+
+���󥹥ȡ���
+---
+1. ghostscript �򥳥�ѥ��뤹��Τ�ɬ�פʥ��������Ÿ������
+   Ŭ��ɬ�פʥѥåd���Ƥޤ���
+2. gdevmd2k.c �� gs �Υ������Τ���ǥ��쥯�ȥ�˥��ԡ����ޤ���
+3. gs5.10 �ξ��ϡ�gdevmd2k.dev �� Makefile ���ɲä��ޤ���
+   gs5.50 �ξ��ϡ�gdevmd2k.mak-5.50 �� contrib.mak ���ɲä��ޤ���
+   (gs5.8x �ξ��ϡ�gdevmd2k.mak-5.8x �� contrib.mak ���ɲ�)
+4. ��ʬ�Υ������Ѥ� Makefile ��Ĵ0���� DEVICE_DEVS �� md2k.dev ���ɲä��ޤ���
+   MD-5000 ����Ѥ�����ϡ�md5k.dev ���ɲä��ޤ���
+5. make
+
+
+������
+---
+  �ǥХ����λ���
+	  gs ��¹Ԥ���ݤˡ�-sDEVICE ���ץ����ǰʲ��Τ����줫�ΥǥХ�����
+	j�򤹤뤳�Ȥǡ�ALPS MD �ץ�󥿡��Ѥν��Ϥ�8.����ޤ���
+
+	-sDEVICE=md2k
+		MD-2000/4000/1000 ��MD-5000 ��p�� MD ���꡼�����б�����
+		�|��ν��Ϥ�Ԥ��ޤ���(MD-5000 �Ǥ���ϲ�ǽ�Ǥ�)
+	-sDEVICE=md5k
+		MD-5000 ���Ѥη|��ǽ��Ϥ��ޤ��������֥�å��⡼�ɤ���Ѥ���
+		���ϡ����d����ꤹ��ɬ�פ�����ޤ���
+	(��) md5k.dev ��99/5/2���ߡ��ºݤΥץ�󥿡��ǥƥ��Ȥ���Ƥ��ޤ���
+	     MD-5000 �ǡ��ܥǥХ�����ƥ��Ȥ��Ʋ����ä����'���̤�
+	     ���Τ餻��������
+
+  ���顼����Υ��?dithering ��j��
+	-dBitsPerPixel=1   �̾�Υ�Υ�����
+	-dBitsPerPixel=4   �̾�Υ��顼���    (default)
+	-dBitsPerPixel=8   Floyd-Steinberg dithering ���Ѥ�����Υ�����
+	-dBitsPerPixel=32  Floyd-Steinberg dithering ���Ѥ������顼���
+
+	(��) tiger.ps ���Υ��?dithering ���Ѥǽ���
+	    gs -q -dNOPAUSE -sDEVICE=md2k -dBitsPerPixel=8 \
+	       -sOutputFile=- tiger.ps -c quit | lpr
+
+	-dColor, -dDither ����Ѥ��Ƥ�Ʊ�ͤ����꤬��ǽ�Ǥ���
+		-dColor=false	��Υ���
+		-dColor(=true)	���顼
+		-dDither=false	dithering���ʤ�
+		-dDither(=true)	dithering �����
+
+	* ���顼�����j�򤷤Ƥ� PS �ե����뤬��Υ���ξ��ˤϡ�
+	  CMY�Υ��󥯥�ܥ�ϻ��Ѥ��ޤ���
+	* dithering ����Ѥ���С��̿���β���Ϥ�����˰�������Ϥ�
+	  �Ǥ���������ˤ�äƤϻ��Ѥ��ʤ������ʾ��⤢��ޤ���
+
+  �����٤�j��
+	-r300		300dpi
+	-r600		600dpi (default)
+	-r1200x600	1200x600dpi
+
+	(��) 1200x600dpi �ǽ���
+	    gs -q -dNOPAUSE -sDEVICE=md2k -r1200x600 -dBitsPerPixel=1 \
+	       -sOutputFile=- tiger.ps -c quit | lpr
+
+	* MD-2000 �Ǥ⡢���顼 1200x600dpi ���������Ǥ��ޤ�����
+	  ��dϤۤȤ�� 600dpi ���Ѥ��ޤ���
+
+  �ѻ����
+	  �ѻ�μ������ꤷ�ޤ���Windows �Υɥ饤�ФȰۤʤꡢ
+	�����٤��ѻ�μ��फ�鼫ưŪ�˷��ꤵ��ޤ���
+	�����٤� -r ���ץ��������ӻ��ꤷ�Ʋ�������
+	(��) ������󥷡��롢��٥��ե꡼��ư���ǧ���Ƥ��ʤ���Τ�
+	     ����ޤ���
+
+	-sMediaType=PlainPaper		���ԡ��� (default)
+	-sMediaType=IronSeal		������󥷡���
+	-sMediaType=RebecaFree		��٥��ե꡼
+	-sMediaType=CardBoard		���
+	-sMediaType=PostCard		�Ϥ���
+	-sMediaType=FinePaper		��{�
+	-sMediaType=CoatedFilm		����ե����
+	-sMediaType=GlossyPaper		�����
+	-sMediaType=TransparencyFilm	OHP�ѻ� (MD-2000 �ʳ�)
+	-sMediaType=OHP			  ��
+	-sMediaType=OHP_MD2000		OHP (MD-2000�����ѥ��󥯤���Ѥ�����)
+
+  �ѻ極�����λ���
+	-sPAPERSIZE=letter	�쥿��������
+	-sPAPERSIZE=a4		A4
+	-sPAPERSIZE=b5		B5
+	-sPAPERSIZE=postcard	�Ϥ��� (*)
+	-d.MediaSize='{xx yy}'	Ǥ�ե������λ��� (xx, yy �� 1/72 inch)
+
+	(*) gdevlips �˴ޤޤ�� gs_statd.ps �Υѥåd���Ƥ�����
+	    ���Ѳ�ǽ
+
+  ����ǻ��Ĵ0
+	dithering ����Ѥ�����Τߡ��ʲ���option��ǻø��Ĵ0����ǽ��
+	���礭������ǻ�����Ϥ���ޤ���
+
+	-dBlack=0-2048		(default 1024)
+	-dCyan=0-2048		(default 1024)
+	-dMagenta=0-2048	(default 1024)
+	-dYellow=0-2048		(default 1024)
+
+	(��) �������ǻ�����ޥ��󥿤���������
+	    gs -q -dNOPAUSE -sDEVICE=md2k -dBitsPerPixel=32 \
+	       -dCyan=1200 -dMagenta=800 -sOutputFile=- tiger.ps -c quit
+
+  ����¾
+	-dManualFeed	�꺹�����������˻��ꤷ�ޤ���
+
+	-dEcoBlack	�����֥�å������Ԥ��ޤ���
+			�ǥХ����� md5k ����Ѥ������Τ�ͭ��Ǥ���
+
+	-dReverseSide	΢�̤˰����Ԥ��ݤˡ������붺5��ػߤ��뤿��
+			���ꤷ�ޤ���
+
+
+�ѹ�����
+---
+1999-05-02	Ver.0.2a
+	* MD-5000 �ѥǥХ��� md5k ���ɲ�
+	* �ѻ���ꥪ�ץ���� -sMediaType ���ɲ�	            
+	* ���ץ���� -dManualFeed, -dEcoBlack, -dReverseSide ���ɲ�
+	* ���顼��dithering ��̵ͭ�� -dBitsPerPixel �ǻ��ꤹ��褦
+	  README ���ѹ�
+	* -dColor, -dDither �� int ������ bool �����ѹ�
+	* -dBitsPerPixel=1 �λ���;��򥹥��åפ��ʤ��Х���5
+	* �ѻ極������ letter ���ɲ�
+	* MD-2000 �Ǥ� OHP ���Ϥ��б�
+
+1999-04-18	Ver.0.1
+	* MD-2000 �б��� gdevmd2k-0.1 ���
+
+
+TODO (or NOT TODO ?)
+---
+* �������ʤ��ü�ʥ⡼�ɤؤ��б�
+* dithering ���β�dθ���
+
+
+�ռ�
+---
+    Floyd-Steinberg dithering �Υ��르�ꥺ��ϡ�George Cameron ��ν񤫤줿
+  gdevcdj.c �򻲹ͤˤ�����ĺ���ޤ�����
+
+    MD-5000 �ѥɥ饤�� gdevalps �κ�� Shinya Umino���󤫤��
+  MD-5000 �Ǥ�ư�������ܥɥ饤�Ф˴ؤ����ո���ĺ���ޤ�����
+  �ܥɥ饤�Ф� MD-5000 �б���ʬ�� gdevalps �򸵤˺���ޤ�����
+
+    gdevlips �κ�� �翹���ͤ��󤫤�ϥ��顼��������ˤĤ��Ƹ�ո���
+  ĺ���ޤ������ޤ���gs �Υ��ץ����ˤĤ��Ƥϡ�gdevlips �򻲹ͤˤ�����
+  ĺ���ޤ�����
+
+    Kousuke Ikeda ����ʡ�ﵣ�ꤵ��6����󤵤�MIHIRA Yoshiro ����
+  ����ϡ�MD-1300, MD-1500, MD-4000 �Ǥ�ư������ĺ���ޤ�����
+  
+---
+  �ܥɥ饤�Ф˴ؤ����ո����Х����ALPS MD �Ƶ���ǤΥƥ��ȷ����
+����ޤ����顢�᡼��ˤƸ�Ϣ��ꤤ�ޤ���
+
+�س� ����
+Masakazu Higaki	<higamasa@dd.mbn.or.jp>

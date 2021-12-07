@@ -1,0 +1,47 @@
+%    Copyright (C) 1994, 1996, 1997, 1999 Aladdin Enterprises.  All rights reserved.
+% 
+%  This file is part of GNU ghostscript
+%
+%  GNU ghostscript is free software; you can redistribute it and/or modify it under
+%  the terms of the version 2 of the GNU General Public License as published by the Free Software
+%  Foundation.
+%
+%  GNU ghostscript is distributed in the hope that it will be useful, but WITHOUT
+%  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+%  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public License along with
+%  ghostscript; see the file COPYING. If not, write to the Free Software Foundation,
+%  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+%
+% $Id: gs_wan_e.ps,v 1.5 2007/08/01 14:25:39 jemarch Exp $
+% Define the WinAnsi encoding vector.
+/currentglobal where
+ { pop currentglobal { setglobal } true setglobal }
+ { { } }
+ifelse
+/WinAnsiEncoding
+ISOLatin1Encoding 0 39 getinterval aload pop
+    /quotesingle
+ISOLatin1Encoding 40 5 getinterval aload pop
+    /hyphen
+ISOLatin1Encoding 46 50 getinterval aload pop
+    /grave
+ISOLatin1Encoding 97 30 getinterval aload pop
+    /bullet
+% \20x
+	% NOTE: /Euro, /Zcaron, and /zcaron are new for PDF 1.3.
+	% We may have to take them out for backward compatibility.
+    /Euro /bullet /quotesinglbase /florin
+	/quotedblbase /ellipsis /dagger /daggerdbl
+    /circumflex /perthousand /Scaron /guilsinglleft
+	/OE /bullet /Zcaron /bullet
+    /bullet /quoteleft /quoteright /quotedblleft
+	/quotedblright /bullet /endash /emdash
+    /tilde /trademark /scaron /guilsinglright
+	/oe /bullet /zcaron /Ydieresis
+ISOLatin1Encoding 160 96 getinterval aload pop
+256 packedarray
+4 1 index .registerencoding
+.defineencoding
+exec

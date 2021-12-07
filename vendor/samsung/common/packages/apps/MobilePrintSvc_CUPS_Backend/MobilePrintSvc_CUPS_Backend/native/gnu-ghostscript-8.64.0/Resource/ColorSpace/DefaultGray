@@ -1,0 +1,35 @@
+%    Copyright (C) 2003 Artifex Software, Inc.  All rights reserved.
+%
+% This file is part of GNU ghostscript
+%
+% GNU ghostscript is free software; you can redistribute it and/or modify it under
+% the terms of the version 2 of the GNU General Public License as published by the Free Software
+% Foundation.
+%
+% This software is provided AS-IS with no warranty, either express or
+% implied. That is, this program is distributed in the hope that it will 
+% be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+% General Public License for more details
+%
+% You should have received a copy of the GNU General Public License along
+% with this program; if not, write to the Free Software Foundation, Inc.,
+% 51 Franklin Street, Fifth Floor, Boston, MA, 02110-1301.
+
+
+% $Id: DefaultGray,v 1.5 2007/09/11 15:25:11 Arabidopsis Exp $
+% DefaultGray color space resource.
+
+currentglobal true setglobal
+
+/DefaultGray
+[ /CIEBasedA
+  3 dict begin
+     /WhitePoint [ 0.9505 1.0 1.089 ] def
+     /DecodeLMN  [ { 1.8 exp } bind dup dup ] bind def
+     /MatrixLMN  [ 0.4439 0.2522 0.0436 0.3341 0.6371 0.1387 0.1725 0.1107 0.9067 ] def
+  currentdict end
+]
+/ColorSpace defineresource pop
+
+setglobal

@@ -1,0 +1,242 @@
+\input texinfo
+@comment $Id: ghostscript.texi,v 1.1 2005/12/08 13:41:59 jemarch Exp $
+@comment %**start of header
+
+@include version.texi
+
+@copying
+This is the @value{EDITION} edition of the @cite{GNU Ghostscript
+Manual}, updated for GNU ghostscript version @value{GSVER}.
+
+Copyright @copyright{} 1996-2002 artofcode LLC
+
+Copyright @copyright{} 2005 Jos@'e E. Marchesi
+
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License, Version 2 or
+any later version published by the Free Software Foundation.
+@end quotation
+@end copying
+
+@direntry
+* GNU ghostscript: (gnu-ghostscript).    The GNU PostScript and PDF interpreter.
+@end direntry
+
+@titlepage
+@sp 6
+@center @titlefont{GNU Ghostscript Manual}
+@sp 4
+@center @value{EDITION} Edition, Updated for GNU Ghostscript Version @value{GSVER}.
+@sp 5
+@center artofcode LLC
+@center Jos@'e E. Marchesi
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+
+@end titlepage
+@page
+@ifnottex
+@node Top
+@top GNU Ghostscript
+
+GNU Ghostscript - The GNU Postscript and PDF interpreter.
+
+@insertcopying
+@end ifnottex
+
+@menu
+
+@end menu
+
+
+@contents
+
+@node An overview of GNU Ghostscript
+@chapter An overview of GNU Ghostscript
+
+Ghostscript is the name of a set of software that provides:
+
+@itemize @minus
+@item
+An interpreter for the @trademark{PostScript} language and the Adobe
+@trademark{Portable Document Format} (@acronym{PDF} -- sometimes
+confused with Acrobat, Adobe's @acronym{PDF} browser and editor
+product).
+@item
+Input modules (utilities) for reading a variety of raster formats,
+including @acronym{CMYK}, @acronym{GIF}, @acronym{JFIF}
+(@acronym{JPEG}), @acronym{MIFF},
+@acronym{PBM}/@acronym{PGM}/@acronym{PPM} and @acronym{PCX}.
+@item
+Output modules (drivers) for a wide variety of window systems (including
+X Window and Microsoft Windows), raster file formats, and printers, as
+well as a @acronym{PDF} output module that implements functions similar
+to Adobe's @trademark{Acrobat} @trademark{Distiller} product.
+@item
+The GNU Ghostscript library, a set of procedures to implement the
+graphics and filtering capabilities that are primitive operations in the
+PostScript language and in @acronym{PDF}.
+@end itemize
+
+In simple terms, this means that GNU Ghostscript can read a PostScript
+or @acronym{PDF} file and display the results on the screen or convert
+them into a form you can print on a non-PostScript printer. Especially
+together with several popular previewers, with GNU Ghostscript you can
+view or print an entire document or even isolated pages, even if your
+computer doesn't have Display PostScript and your printer doesn't handle
+PostScript itself.
+
+@node How is GNU Ghostscript licensed
+@section How is GNU Ghostscript licensed? Where can I find it?
+
+GNU Ghostscript is distributed with the GNU General Public License,
+which allows free use, and free copying and redistribution under certain
+conditions (including commercial distribution). You can always get the
+current version of GNU Ghostscript by Internet ftp from:
+
+@center
+ftp://ftp.gnu.org/pub/gnu/ghostscript/
+@end center
+
+or from any GNU mirror. 
+
+For a more complete list of sites, including sistes outside the U.S.,
+write to @email{gnu@@gnu.org}. The Free Software Foundation makes GNU
+Ghostscript available on tape and CD-ROM.
+
+
+@node Libraries obtained from other parties
+@section Libraries obtained from other parties
+
+The GNU Ghostscript source code distribution, and the GNU Ghostscript
+executable code, include libraries obtained from other parties. All the
+source files mentioned in this section are in the GNU Ghostscript and
+third-party library source kits. The documentation of how to build GNU
+Ghostscript tells where to get these libraries and how to unpack them.
+
+@table @strong
+@item The Independent JPEG Group (IJG) Library
+The executable versions of GNU Ghostscript are based in part on the work
+of the Independent JPEG Group. For more information, see @file{jpeg.mak}
+in the GNU Ghostscript source directory and @file{README} in the @file{jpeg}
+subdirectory of the GNU Ghostscript source code. The homepage of the
+Independent JPEG Group is @url{http://www.ijg.org/}
+@item The Portable Network Graphics (PNG) Library
+The Portable Network Graphics (@acronym{PNG}) library created by Dave
+Martindale, Guy Eric Schalnat, Paul Schmidt, and Tim Wegner, of Group
+42, Inc. For more information, see @file{libpng.mak} in the main GNU
+Ghostscript source directory, and @file{README} and @file{png.h} in the
+@file{libpng} subdirectory of the GNU Ghostscript source code. The main
+web page of the Portable Network Graphics Library is
+@url{http://www.libpng.org/pub/png/}.
+@item The zlib library
+The zlib library created by Jean-lup Gailly and Mark Adler. For more
+information, see @file{zlib.mak} in the main GNU Ghostscript source
+directory, and @file{README} in the @file{zlib} subdirectory of the GNU
+Ghostscript source code. The web page of the zlib library is
+@url{http://www.gzip.org/zlib/}. 
+@end table
+
+These libraries do @strong{NOT} fall under the GNU General Public
+License; they come with their own licenses, which also allow free use
+and redistribution under appropiate circumstances and which appear in
+the files mentioned just above. These libraries are entierly original
+works of their respective authors, and are provided @strong{AS IS} with
+@strong{NO WARRANTY} and @strong{NO SUPPORT}.
+
+@node What platforms does GNU Ghostscript run on
+@section What platforms does GNU Ghostscript run on?
+
+GNU Ghostscript is written entirely in C (with some optional
+assembly-language accelerators for DOS platforms), with special care
+taken to make it run properly on systems of either byte order
+(``low-endian'' and ``high-endian'') and of various word lengths. GNU
+Ghostscript is known to run on the following platforms families:
+
+@itemize @bullet
+@item
+GNU systems based on the Linux kernel, and running X Window.
+@item
+A wide variety of Unix systems using X Window version 11, releases 4, 5,
+and 6, including
+
+@itemize @minus
+@item
+Sun-3, Sun-4, Sun-386i, Sun SPARCStation with SunOS 4 and Solaris 2.[56]
+@item
+Generic Intel-based systems running GNU/Linux, 386/ix, 386BSD, FreeBSD,
+ISC Unix, SCO Unix, and Solaris
+@item
+H-P 9000/300 and 9000/800
+@item
+DECStation 2100, 3100, and 5xxx
+@item
+Alpha systems running Digital Unix
+@item
+VAX running Ultrix
+@item
+Sequent Symmetry
+@item 
+Convex C1 and C2
+@item
+Tektronix 4300
+@item
+SGI Iris Indigo
+@item
+4.4BSD Unix systems (FreeBSD on Intel)
+@item
+NetBSD on Intel, Sun SPARC, Motorola M68K (Apple, Amiga, Sun, H-P), and VAX
+@end itemize
+@item
+Sun workstations running SunView
+@item
+VAX and Alpha systems running OpenVMS with X11 compiled with either DEC
+C or gcc.
+@item
+Macintosh operating systems
+@end itemize
+
+It is very likely that GNU Ghostscript will run under other versions of
+DOS, and other versions of Unix that support X11, but it has not been
+tested in these environments. 
+
+
+@node How to build GNU Ghostscript
+@chapter How to build GNU Ghostscript
+
+@node General overview
+@section General overview
+
+This chapter describes how to build a GNU Ghostscript executable from
+source code. There are four major steps to building GNU Ghostscript: 
+
+@itemize @bullet
+@item
+Acquire the compressed archive files of source code for GNU Ghostscript
+and the required third-party libraries.
+@item
+Unpack the archive files into the GNU Ghostscript directory and
+correctly named subdirectories.
+@item
+Configure the build to match your system and desired configuration
+options. 
+@item
+Invoke ``make'' to build the software.
+@end itemize
+
+The remainder of this document describes each of these steps in
+detail. Note that some of this process is platform-dependent. After
+building GNU Ghostscript you must then install it; for that, see the
+installation instructions on the chapter below.
+
+ 
+
+
+
+@node How to install GNU Ghostscript
+@chapter How to install GNU Ghostscript
+
+@bye

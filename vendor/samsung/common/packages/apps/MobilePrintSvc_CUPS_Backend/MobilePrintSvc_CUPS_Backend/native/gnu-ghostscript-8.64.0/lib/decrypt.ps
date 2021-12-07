@@ -1,0 +1,15 @@
+%!
+% Decrypt an eexec-encoded file.
+% $Id: decrypt.ps,v 1.3 2007/05/07 11:22:07 Arabidopsis Exp $
+
+(t.in) (r) file /in exch def
+(t.out) (w) file /out exch def
+256 string /buf exch def
+55665		% eexec encryption seed
+ { in buf readhexstring /more exch def
+   dup .type1decrypt out exch writestring
+   more not { exit } if
+ } loop
+in closefile
+out closefile
+quit

@@ -1,0 +1,41 @@
+
+This is GNU Ghostscript version 8.64.0.
+
+GNU Ghostscript is an interpreter for the Postscript language and the
+Adobe Portable Document Format (PDF), a set of C procedures (the
+Ghostscript lib) that implements the graphics capabilities that appear
+as primitive operations in the Postscript language and in PDF, and a
+set of utility programs that include the ability to convert PostScript
+to PDF.
+
+GNU Ghostscript is based on the GPLed Ghostscript made by Ralph Giles,
+artofcode LLC and Artifex Software, Inc.  Thanks to Ralph's hard work
+for making this release of Ghostscript possible. Also thanks to Andy
+Tai from the GNU project for the hard work on GNU Ghostscript versions
+before 8.16.
+
+GNU Ghostscript is copyrighted by artofcode LLC and released under the
+GNU General Public License.  A copy of the license is included in the
+file called COPYING in this distribution.  You can also get a copy of
+the GNU General Public License by writing to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA, 02110-1301 or
+on the World Wide Web at http://www.gnu.org/licenses/gpl.txt
+
+GNU Ghostscript is maintained by Didier Link (didier@famille-link.fr)
+and Jose E. Marchesi (jemarch@gnu.org).  For bugs or issues regarding
+the GNU version of Ghostscript, please send them to
+bug-ghostscript@gnu.org.  Please do not contact artofcode LLC or Ralph
+Giles for bugs or support issues in this version of Ghostscript as
+they are not responsible for it.
+
+GNU Ghostscript is available from
+
+ftp://ftp.gnu.org/gnu/ghostscript/
+
+and GNU ftp mirror sites worldwide.
+
+Didier Link
+didier@famille-link.fr
+
+Jose E. Marchesi
+jemarch@gnu.org

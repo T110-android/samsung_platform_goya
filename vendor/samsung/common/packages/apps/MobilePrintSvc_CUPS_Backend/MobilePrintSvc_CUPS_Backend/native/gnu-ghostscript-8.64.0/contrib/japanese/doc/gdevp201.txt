@@ -1,0 +1,30 @@
+
+	gdevp201.c  -  PC-PR201�ѥǥХ����ɥ饤��
+
+
+��󥹥ȡ�����ˡ
+
+1. gdevp201.c �� gs241 �Υ������ץ?��ब����ǥ��쥯�ȥ�˥��ԡ���
+�Ʋ�������
+
+2. Makefile �� gdevp201.mak ���ɲä��Ʋ�������
+
+3. Makefile �� DEVICE_DEVS �� pr201.dev ��ä��Ʋ�������
+
+    ��) DEVICE_DEVS=pc98.dev pr201.dev
+			     ^^^^^^^^^
+4. make ���ޥ�ɤ� gs �򥳥�ѥ��뤷�����󥹥ȡ��뤷�Ʋ�������
+
+
+��Ȥ���
+
+��ǥХ�����j��� -sDEVICE ���ץ����ˤ�äƹԤʤ��ޤ���
+
+    ��) gs -sDEVICE=pr201	(pr201�����)
+	gs -sDEVICE=pc98	(pc98�����)
+
+
+
+				�һ� ��8(katayama@nacsis.ac.jp)
+
+

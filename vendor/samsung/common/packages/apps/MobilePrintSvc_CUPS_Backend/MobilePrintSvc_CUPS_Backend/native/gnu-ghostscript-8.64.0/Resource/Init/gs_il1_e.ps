@@ -1,0 +1,67 @@
+%    Copyright (C) 1993, 1994, 1999 Aladdin Enterprises.  All rights reserved.
+% 
+%  This file is part of GNU ghostscript
+%
+%  GNU ghostscript is free software; you can redistribute it and/or modify it under
+%  the terms of the version 2 of the GNU General Public License as published by the Free Software
+%  Foundation.
+%
+%  GNU ghostscript is distributed in the hope that it will be useful, but WITHOUT
+%  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+%  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public License along with
+%  ghostscript; see the file COPYING. If not, write to the Free Software Foundation,
+%  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+%
+% $Id: gs_il1_e.ps,v 1.5 2007/08/01 14:25:37 jemarch Exp $
+% Define the ISO Latin-1 encoding vector.
+% The first half is the same as the standard encoding,
+% except for minus instead of hyphen at code 055.
+/ISOLatin1Encoding
+StandardEncoding 0 45 getinterval aload pop
+    /minus
+StandardEncoding 46 82 getinterval aload pop
+% NOTE: the following are missing in the Adobe documentation,
+% but appear in the displayed table:
+% macron at 0225, dieresis at 0230, cedilla at 0233, space at 0240.
+% This is an error in the Red Book, corrected in Adobe TN 5085.
+% \20x
+    /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+    /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+    /dotlessi /grave /acute /circumflex /tilde /macron /breve /dotaccent
+    /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron
+% \24x
+    /space /exclamdown /cent /sterling
+	/currency /yen /brokenbar /section
+    /dieresis /copyright /ordfeminine /guillemotleft
+	/logicalnot /hyphen /registered /macron
+    /degree /plusminus /twosuperior /threesuperior
+	/acute /mu /paragraph /periodcentered
+    /cedilla /onesuperior /ordmasculine /guillemotright
+	/onequarter /onehalf /threequarters /questiondown
+% \30x
+    /Agrave /Aacute /Acircumflex /Atilde
+	/Adieresis /Aring /AE /Ccedilla
+    /Egrave /Eacute /Ecircumflex /Edieresis
+	/Igrave /Iacute /Icircumflex /Idieresis
+    /Eth /Ntilde /Ograve /Oacute
+	/Ocircumflex /Otilde /Odieresis /multiply
+    /Oslash /Ugrave /Uacute /Ucircumflex
+	/Udieresis /Yacute /Thorn /germandbls
+% \34x
+    /agrave /aacute /acircumflex /atilde
+	/adieresis /aring /ae /ccedilla
+    /egrave /eacute /ecircumflex /edieresis
+	/igrave /iacute /icircumflex /idieresis
+    /eth /ntilde /ograve /oacute
+	/ocircumflex /otilde /odieresis /divide
+    /oslash /ugrave /uacute /ucircumflex
+	/udieresis /yacute /thorn /ydieresis
+% Make an array on large systems, a packed array on small ones.
+256
+vmstatus exch pop exch pop
+100000 ge { array astore readonly } { packedarray } ifelse
+def
+1 ISOLatin1Encoding .registerencoding
+/ISOLatin1Encoding ISOLatin1Encoding .defineencoding

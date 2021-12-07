@@ -1,0 +1,35 @@
+GNU Ghostscript version 5.50 ���ܸ첽�ѥå� gs550j
+Version 0.3 Jun. 22, 1999 by �翹���� (ohmori@p.chiba-u.ac.jp)
+Copyright (C) 1996-1999 Daisuke SUZUKI.
+Copyright (C) 1999 Norihito Ohmori.
+
+��Ϥ����
+
+���Υѥåd��һ���8(katayama@nacsis.ac.jp)����κ�.���줿��
+ghostscript-2.6.1 ���ܸ첽�ѥå������Υɥ饤�Фȡ��ɻ���ŵ�����
+��.���줿 ���ܸ� Font Driver on VFlib version 1.0 �� ghostscript 5.50 ��
+�б������� ����ů <akr@jaist.ac.jp> ����� gs5.50-vflib-1.1
+�������ʬ�����Ѥ��������Ĥ��Υѥåd򤢤ơ�¿���Υץ�󥿥ɥ饤�з���
+Ʊ��������ΤǤ���
+
+
+��Changes
+��gs550j03
+  gdevlips-2.3.3 (Update for lips4v.dev bugfix)
+��gs550j02
+  gdevlbp3-0.2 (Update)
+��gs550j01
+  �ǽ�Υ�꡼��
+
+
+��Ǹ��
+
+���Υѥåd˴ؤ���������¾�� GPL �˽����ޤ���
+�ޤ������Υѥåd�̵�ݾڤǤ��������Ȥä����Ȥˤ��ʤ�餫���Զ�礬
+ȯ8�����Ȥ��Ƥ��ԤϤʤ�����Ǥ���餤�ޤ���
+
+
+��ռ�
+
+�ƥɥ饤�Ф����ĺ������Ԥγ��ͤ˴��դ��ޤ���
+�ޤ����ƥ��Ȥ򤷤Ƥ��$��ä����͡�����ˤ��꤬�Ȥ��������ޤ�����

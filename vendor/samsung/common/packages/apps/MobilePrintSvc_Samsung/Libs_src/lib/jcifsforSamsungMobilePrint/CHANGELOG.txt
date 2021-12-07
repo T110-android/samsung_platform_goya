@@ -1,0 +1,37 @@
+[ChangeLog]
+2011/06/28 (yyyy/mm/dd)
+	- Applied jcifs_1.3.14-printing.patch icluded in the patches folder in JCIFS library.
+	   http://jcifs.samba.org/src/patches/jcifs_1.3.14-printing.patch
+                   - Modified printing patch to  adapt to take data from byte buffer instead of input stream.
+	- Modified files after printing patch
+		- SMBFile.java . Added function 
+		    public int writePrintData(byte[] buffer, int length) 
+	
+	This change will allow to send data to shared printer. 
+	Prints contents of the given inputstream / byte buffer  to this printer. This method
+	does not check if the input stream / byte buffer contains content that the printer will
+	understand, e.g. user may send PCL content to a PostScript printer, and
+	this method would not report an error. Since this method is sychronized,
+	one must create different instances of SmbFile to send print jobs in
+	parallel to the same printer multiple times. This approach is slow, but
+	this method is a first step to a proper printer queue implementation in
+	SmbFile.
+
+
+
+Steps to build
+1. Download JCIFS library from http://jcifs.samba.org/src/
+2. Patch the downloaded library with the given patch
+    a.  Extract JCIFS to a folder.   for example c:/MyCode/jcifs_1.3.15
+    b. Put patch file in the same folder.  for example 
+                   c:/MyCode/jcifs_1.3.15_SamsungPrint.patch
+    c. On Unix or on Cygwin type following command from the folder containing patch
+	$ patch -p0 -l -i jcifs_1.3.15_SamsungPrint.patch
+3. Now your downloaded JCIFS code is updated.
+4. Can be used as source code and included in your project or can be made as JAR.
+5. To make .jar follow README.txt and use build.xml.    For Ex. 
+                 c:/MyCode/jcifs_1.3.15/ant JAR
+ will build the library in .JAR
+
+
+Note: Given patch is tested only on JCIFS_1.3.15 version only.

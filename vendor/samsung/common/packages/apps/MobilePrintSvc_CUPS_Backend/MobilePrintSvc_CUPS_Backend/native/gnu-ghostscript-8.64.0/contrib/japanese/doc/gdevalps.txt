@@ -1,0 +1,50 @@
+
+����ʪ��
+
+   gdevalps-0.2.tar.gz 
+
+     README.gdevalps        ���Υե�����
+     gdevalps.c             �ɥ饤�Х�����
+     gdevalps.mak           ghostscript-5.10 �� Makefile �ɲ���ʬ
+     gdevalps.mak-5.50      ghostscript-5.50 �� Makefile �ɲ���ʬ
+
+����
+
+   ghostscript-5.10/ghostscript-5.50 �Ѥ� ALPS MD���꡼���Υ�Υ��� 600x600dpi
+   �б��Υɥ饤�ФǤ���MD���꡼������(?)��Υ���⡼�ɡ�MD5000���ѥ�Υ���⡼
+   �ɤǤΰ���򥵥ݡ��Ȥ��ޤ���MD5000�Ǥϥ����֥�å����󥯤�j����ǽ�Ǥ���
+   -sDEVICE ���ץ����ǲ���3����Υ⡼�ɤ���ꤹ����ǽ�Ǥ���
+
+     md50Mono  ��С������Ʊ�ͤ� MD5000 �ǤΥ�Υ������⡼�ɡ�
+     md50Eco   ��С������Ǥϥ������ѹ���ɬ�פ$ä������֥�å��⡼�ɤ�ǥ�
+               ����̾�ǻ���Ǥ���褦�ˤ�����
+     md1xMono  �����ɲå��ݡ��Ȥ��� MD1300, MD5000 �Ǥ�ư����ǧ�����⡼�ɡ�
+               Kousuke Ikeda ���󤫤饽�����ץ?����ĺ������С�������
+               ����������礷����ΤǤ���
+               MD2000, MD4000 �ʤɡ��Ť����꡼���⤳�Υ⡼�ɤ򥵥ݡ��Ȥ��Ƥ���
+               ��ǽ-������ޤ���
+   
+�Ȥ���
+
+   ghostscript-5.10 �ޤ��� ghostscript-5.50 ���.����Τ�ɬ�פʥ��������Ÿ��
+   ������ǡ������������ۥե��������Ѥ��Ʋ�������
+
+     ��makefile �ؤ��ɲ�����
+       * ghostscript-5.10 �Ǥ� makefile �� gdevalps.mk �����Ƥ��ɲ�
+       * ghostscript-5.50 �Ǥ� contrib.mk �� gdevalps.mk-5.50 �����Ƥ��ɲ�
+     ��makefile ��� DEVICE_DEVS �� md50Mono.dev md50Eco.dev md1xMono.dev
+       ���ɲä��롣
+     ��gdevalps.c �򥽡����ǥ��쥯�ȥ�˥��ԡ����롣
+     ������ѥ��뤹��
+
+TODO
+     �����󥯥����ȥ�å��Υ��ץ�������
+     �����顼�⡼�ɥ��ݡ���
+     ������¾
+
+   �Х���𤽤�¾��ո��ʤɤ���ޤ�����䰸�˥ᥤ��Ǥ��ꤤ�פ��ޤ���
+
+  vVv
+ > ..<   NEC Computer Systems, LTD.  / umi@mpd.necs.nec.co.jp
+   o     Umino, Shinya.              / umi@necs.co.jp
+

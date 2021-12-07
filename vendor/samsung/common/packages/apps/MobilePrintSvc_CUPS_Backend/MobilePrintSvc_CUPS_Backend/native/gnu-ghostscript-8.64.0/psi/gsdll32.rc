@@ -1,0 +1,55 @@
+/* Copyright (C) 2001-2006 Artifex Software, Inc.
+   All Rights Reserved.
+  
+  This file is part of GNU ghostscript
+
+  GNU ghostscript is free software; you can redistribute it and/or
+  modify it under the terms of the version 2 of the GNU General Public
+  License as published by the Free Software Foundation.
+
+  GNU ghostscript is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along with
+  ghostscript; see the file COPYING. If not, write to the Free Software Foundation,
+  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+*/
+
+
+/* $Id: gsdll32.rc,v 1.8 2007/09/11 15:24:23 Arabidopsis Exp $*/
+
+#include <windows.h>
+#include "gp_mswin.h"
+
+#ifndef gstext_ico
+#define gstext_ico gswin.ico
+#endif
+#ifndef gsgraph_ico
+#define gsgraph_ico gswin.ico
+#endif
+
+GSTEXT_ICON ICON gstext_ico
+GSIMAGE_ICON ICON gsgraph_ico
+
+#ifndef DS_3DLOOK
+#define DS_3DLOOK 0x0004L	/* for Windows 95 look */
+#endif
+
+SpoolDlgBox DIALOG 32, 40, 110, 63
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU | DS_3DLOOK
+CAPTION "Select Printer Port"
+BEGIN
+	CONTROL "&OK", IDOK, "button", BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 72, 14, 32, 14
+	CONTROL "&Cancel", IDCANCEL, "button", BS_PUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 72, 36, 32, 14
+	CONTROL "", SPOOL_PORT, "LISTBOX", LBS_NOTIFY | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 8, 8, 56, 50
+END
+
+CancelDlgBox DIALOG 32, 40, 120, 48
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_VISIBLE | DS_3DLOOK
+BEGIN
+	CTEXT "Printing", -1, 8, 4, 104, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CTEXT "", CANCEL_PCDONE, 8, 16, 104, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CONTROL "&Cancel", IDCANCEL, "button", BS_PUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 44, 30, 32, 14
+END

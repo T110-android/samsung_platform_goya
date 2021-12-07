@@ -1,0 +1,77 @@
+#!/usr/bin/env python
+# -*- Mode: python -*-
+
+#    Copyright (C) 2001 Artifex Software Inc.
+#    All Rights Reserved.
+# 
+# This file is part of GNU ghostscript
+#
+# GNU ghostscript is free software; you can redistribute it and/or
+# modify it under the terms of the version 2 of the GNU General Public
+# License as published by the Free Software Foundation.
+#
+# This software is provided AS-IS with no warranty, either express or
+# implied. That is, this program is distributed in the hope that it will 
+# be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA, 02110-1301.
+
+
+# $Id: revert_baseline,v 1.7 2008/05/04 14:35:06 Arabidopsis Exp $
+
+#
+# revert_baseline <file>
+#
+# this script updates the testdata database with a new baseline sum
+# for all versions of file <file>.  use this when you've accidentally
+# updated a baseline you shouldn't have.
+
+import gstestgs
+import gsconf
+import gssum
+import gsparamsets
+import rasterdb
+import anydbm
+import time
+import os, sys
+import string
+import gsutil
+
+def make_entry(ifile, device, dpi, band):
+    ofile = "%s.%s.%d.%d" % (ifile, device, dpi, band)
+    print "reverting entry: " + ofile + "...",
+    sys.stdout.flush()
+    
+    gs = gstestgs.Ghostscript()
+    gs.command = gsconf.baselinegs
+    gs.infile = gsconf.comparefiledir + ifile
+    gs.outfile = ofile
+    gs.device = device
+    gs.dpi = dpi
+    gs.band = band
+
+    if gs.process():
+        try:
+	    if gsconf.log_baseline:
+                log = open(gsconf.log_baseline, "a")
+		log.write(time.ctime() + " " + ifile + " reverted\n")
+		log.close()
+            gssum.add_file(ofile)
+            rasterdb.put_file(ofile)
+            os.unlink(ofile)
+            print "done."
+        except OSError:
+            print "no output produced."
+    else:
+	print "error."
+
+
+f = os.path.basename(sys.argv[1])
+
+if gsutil.check_extension(f):
+    for params in gsparamsets.testparamsets:
+        make_entry(f, params.device, params.resolution, params.banding)

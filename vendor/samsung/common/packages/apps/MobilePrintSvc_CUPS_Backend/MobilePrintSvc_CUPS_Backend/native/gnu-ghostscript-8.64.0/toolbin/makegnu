@@ -1,0 +1,3 @@
+#!/bin/sh
+# $Id: makegnu,v 1.1 2004/02/14 22:32:19 atai Exp $
+exec $0.tcl "$@"

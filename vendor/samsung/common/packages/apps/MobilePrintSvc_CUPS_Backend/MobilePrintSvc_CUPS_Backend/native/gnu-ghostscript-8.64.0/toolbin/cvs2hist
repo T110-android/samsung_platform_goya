@@ -1,0 +1,3 @@
+#!/bin/sh
+# $Id: cvs2hist,v 1.1 2004/02/14 22:46:29 atai Exp $
+exec $0.py "$@"
